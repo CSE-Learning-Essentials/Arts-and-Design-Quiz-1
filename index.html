@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Arts and Design Quiz</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:40px;
+}
+.container{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+h1,h3{
+    text-align:center;
+}
+.question{
+    margin-bottom:25px;
+    padding:15px;
+    border-radius:6px;
+}
+.correct{
+    background:#d4edda;
+}
+.incorrect{
+    background:#f8d7da;
+}
+.explanation{
+    display:none;
+    margin-top:10px;
+    font-style:italic;
+}
+img{
+    max-width:100%;
+    margin:10px 0;
+}
+button{
+    padding:10px 20px;
+    font-size:16px;
+    cursor:pointer;
+    border:none;
+    background:#007bff;
+    color:white;
+    border-radius:5px;
+}
+#result{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Creative Industries 1</h1>
+<h3>Arts and Design Appreciation and Production</h3>
+<p><b>Grade 11 – Assessment</b></p>
+<p><b>5-Item Quiz | Passing Score: 3</b></p>
+<p>Directions: Choose the letter of the correct answer. For items with images, carefully examine the image and read the question before selecting the correct answer.</p>
+
+<form id="quizForm">
+
+<div class="question" id="q1">
+<p><b>1.</b> Which term refers to the materials or substances used by an artist, composer, or designer to create a work of art?</p>
+<label><input type="radio" name="q1" value="A"> A. Medium</label><br>
+<label><input type="radio" name="q1" value="B"> B. Tools</label><br>
+<label><input type="radio" name="q1" value="C"> C. Canvas</label><br>
+<label><input type="radio" name="q1" value="D"> D. Art form</label>
+<p class="explanation">Explanation: Medium refers to the materials or substances used to create an artwork such as paint, clay, fabric, or digital media.</p>
+</div>
+
+<div class="question" id="q2">
+<p><b>2.</b> It is the pre-design phase under Architectural Designing.</p>
+<label><input type="radio" name="q2" value="A"> A. Schematic Design</label><br>
+<label><input type="radio" name="q2" value="B"> B. Programming</label><br>
+<label><input type="radio" name="q2" value="C"> C. Design Development</label><br>
+<label><input type="radio" name="q2" value="D"> D. History of Art</label>
+<p class="explanation">Explanation: Programming is the pre-design phase where the architect identifies the needs and requirements of the project.</p>
+</div>
+
+<div class="question" id="q3">
+<p><b>3.</b> Which art form focuses on designing outdoor spaces using softscape and hardscape materials?</p>
+<label><input type="radio" name="q3" value="A"> A. Architectural Design</label><br>
+<label><input type="radio" name="q3" value="B"> B. Interior Design</label><br>
+<label><input type="radio" name="q3" value="C"> C. Furniture Design</label><br>
+<label><input type="radio" name="q3" value="D"> D. Landscape Architecture</label>
+<p class="explanation">Explanation: Landscape Architecture designs outdoor environments using softscape and hardscape materials.</p>
+</div>
+
+<div class="question" id="q4">
+<p><b>4.</b> Which material is commonly used in this art form?</p>
+<img src="images/image1.jpg" width="300"><br><br>
+<input type="radio" name="q4" value="A"> A. Clay
+<input type="radio" name="q4" value="B"> B. Oil or acrylic paint<br>
+<input type="radio" name="q4" value="C"> C. Fabric
+<input type="radio" name="q4" value="D"> D. Charcoal<br>
+<p class="explanation">Explanation: Painting commonly uses oil or acrylic paint applied on canvas using brushes.</p>
+</div>
+
+<div class="question" id="q5">
+<p><b>5.</b> Which type of art form does this belong to?</p>
+<img src="images/image2.jpg" width="300"><br><br>
+<input type="radio" name="q5" value="A"> A. Visual Arts
+<input type="radio" name="q5" value="B"> B. Decorative Arts<br>
+<input type="radio" name="q5" value="C"> C. Media Arts
+<input type="radio" name="q5" value="D"> D. Film<br>
+<p class="explanation">Explanation: Animation created using computer software belongs to Media Arts.</p>
+</div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+
+</form>
+
+<h3 id="result"></h3>
+
+<script>
+function submitQuiz(){
+    let answers={
+        q1:"A",
+        q2:"B",
+        q3:"D",
+        q4:"B",
+        q5:"C"
+    };
+    let score=0;
+
+    for(let i=1;i<=5;i++){
+        let q = document.querySelector('input[name="q'+i+'"]:checked');
+        let questionBox = document.getElementById("q"+i);
+
+        if(q){
+            if(q.value===answers["q"+i]){
+                score++;
+                questionBox.classList.add("correct");
+            } else {
+                questionBox.classList.add("incorrect");
+            }
+        } else {
+            questionBox.classList.add("incorrect");
+        }
+
+        let explanation = questionBox.querySelector(".explanation");
+        explanation.style.display="block";
+    }
+
+    let result=document.getElementById("result");
+    if(score>=3){
+        result.innerHTML="Score: "+score+"/5 — <span style='color:green'>PASSED</span>";
+    } else {
+        result.innerHTML="Score: "+score+"/5 — <span style='color:red'>FAILED</span>";
+    }
+}
+</script>
+
+</body>
+</html>
