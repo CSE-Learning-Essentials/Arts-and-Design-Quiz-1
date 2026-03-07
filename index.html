@@ -41,8 +41,6 @@ img{
     margin:10px 0;
 }
 button{
-    padding:10px 20px;
-    font-size:16px;
     cursor:pointer;
     border:none;
     background:#007bff;
@@ -68,6 +66,7 @@ button{
 
 <form id="quizForm">
 
+<!-- Question 1 -->
 <div class="question" id="q1">
 <p><b>1.</b> Which term refers to the materials or substances used by an artist, composer, or designer to create a work of art?</p>
 <label><input type="radio" name="q1" value="A"> A. Medium</label><br>
@@ -77,6 +76,7 @@ button{
 <p class="explanation">Explanation: Medium refers to the materials or substances used to create an artwork such as paint, clay, fabric, or digital media.</p>
 </div>
 
+<!-- Question 2 -->
 <div class="question" id="q2">
 <p><b>2.</b> It is the pre-design phase under Architectural Designing.</p>
 <label><input type="radio" name="q2" value="A"> A. Schematic Design</label><br>
@@ -86,6 +86,7 @@ button{
 <p class="explanation">Explanation: Programming is the pre-design phase where the architect identifies the needs and requirements of the project.</p>
 </div>
 
+<!-- Question 3 -->
 <div class="question" id="q3">
 <p><b>3.</b> Which art form focuses on designing outdoor spaces using softscape and hardscape materials?</p>
 <label><input type="radio" name="q3" value="A"> A. Architectural Design</label><br>
@@ -95,27 +96,31 @@ button{
 <p class="explanation">Explanation: Landscape Architecture designs outdoor environments using softscape and hardscape materials.</p>
 </div>
 
+<!-- Question 4 -->
 <div class="question" id="q4">
 <p><b>4.</b> Which material is commonly used in this art form?</p>
-<img src="images/image1.jpg" width="300"><br><br>
-<input type="radio" name="q4" value="A"> A. Clay
-<input type="radio" name="q4" value="B"> B. Oil or acrylic paint<br>
-<input type="radio" name="q4" value="C"> C. Fabric
-<input type="radio" name="q4" value="D"> D. Charcoal<br>
+<img src="images/image1.jpg" width="300"><br>
+<label><input type="radio" name="q4" value="A"> A. Clay</label><br>
+<label><input type="radio" name="q4" value="B"> B. Oil or acrylic paint</label><br>
+<label><input type="radio" name="q4" value="C"> C. Fabric</label><br>
+<label><input type="radio" name="q4" value="D"> D. Charcoal</label>
 <p class="explanation">Explanation: Painting commonly uses oil or acrylic paint applied on canvas using brushes.</p>
 </div>
 
+<!-- Question 5 -->
 <div class="question" id="q5">
 <p><b>5.</b> Which type of art form does this belong to?</p>
-<img src="images/image2.jpg" width="300"><br><br>
-<input type="radio" name="q5" value="A"> A. Visual Arts
-<input type="radio" name="q5" value="B"> B. Decorative Arts<br>
-<input type="radio" name="q5" value="C"> C. Media Arts
-<input type="radio" name="q5" value="D"> D. Film<br>
+<img src="images/image2.jpg" width="300"><br>
+<label><input type="radio" name="q5" value="A"> A. Visual Arts</label><br>
+<label><input type="radio" name="q5" value="B"> B. Decorative Arts</label><br>
+<label><input type="radio" name="q5" value="C"> C. Media Arts</label><br>
+<label><input type="radio" name="q5" value="D"> D. Film</label>
 <p class="explanation">Explanation: Animation created using computer software belongs to Media Arts.</p>
 </div>
 
-<button type="button" onclick="submitQuiz()">Submit</button>
+<br>
+<!-- Bigger button -->
+<button type="button" onclick="submitQuiz()" style="padding:15px 30px; font-size:18px;">Submit</button>
 
 </form>
 
@@ -123,13 +128,7 @@ button{
 
 <script>
 function submitQuiz(){
-    let answers={
-        q1:"A",
-        q2:"B",
-        q3:"D",
-        q4:"B",
-        q5:"C"
-    };
+    let answers={q1:"A",q2:"B",q3:"D",q4:"B",q5:"C"};
     let score=0;
 
     for(let i=1;i<=5;i++){
